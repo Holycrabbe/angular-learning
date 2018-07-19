@@ -1,20 +1,15 @@
-(fcuntion(){ // stopping locals to bleed in to global scope
-  'use strict';
+(function () {
+'use strict';
+
+angular.module('myFirstApp', [])
+
+.controller('MyFirstController', function ($scope) {
+  $scope.name = "Jacob";
+  $scope.sayHello = function () {
+    return "Hello";
+  };
 
 
-  // create module [0]=name, [...]= independencies
-  angular.module('myFirstApp',[])
-
-      .controller('MyFirstController',function($scope){
-          // this is the viewModel
-          //$ betyder reserved for angular
-
-          $scope.name ="jacob"; // "sets" a varaible thaht can be called in index
-          $scope.great = function(){
-            return "Hello sir";
-          };
-
-      });
-
+});
 
 })();
