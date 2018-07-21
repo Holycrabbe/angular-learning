@@ -3,14 +3,72 @@
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <title>My first AngularJS App</title>
+    <script src="app6.js"></script>
+    <title>AngularJS App</title>
   </head>
   <body>
-    <h1>My first AngularJS App</h1>
-    <div ng-controller="MyFirstController">
-      <input type="text" ng-model="name">
-      Inside my input is: {{name}} <!-- call an expression -->
+    <!-- <div ng-controller="MyFirstController"> -->
+      <!-- app1 & app2 -->
+      <!-- <input type="text" ng-model="name">  2 way bingin: whatching and lisining -->
+      <!--  Inside my input is: {{name}}   call an expression: 1 way  -->
+      <!--  {{name | crazy : "hey" : "there" }}  uses crazy custom made filter : see not Filter at the end-->
+      <!--  {{name | custom | uppercase }}  chain filters together -->
+      <!--  {{::name}}   1 time binding: updated once ? -->
+
+      <!-- app4.js-->
+      <!-- <div>
+        <ul>
+          <li ng-repeat="item in array">{{$index}} buy {{item}}</li>
+        </ul>
+        <ul>
+          <li ng-repeat="item in array2">{{$index}} Buy {{item.quantity}} of {{item.name}}</li>
+        </ul>
+        <input ng-model="search" placeholder="search values"/>
+        <ul>
+          <li ng-repeat="item in array | filter : search">{{item}}</li>
+        </ul>
+      </div> -->
+    <!-- </div> -->
+
+    <!-- app5.js -->
+    <!-- <div ng-controller="controller_1 as ctrl1">
+      {{ctrl1.value}}
+      {{type}}
+      {{parent_id}}
+      {{global.value}} <!-- manipulated from ctrl2 (backwards flow) -->
+    <!--  <div ng-controller="controller_2 as ctrl2">
+        {{ctrl2.value}}
+        {{type}}
+        {{parent_id}} <!-- inharitet through $scope -->
+      <!--  {{global.value}}
+      </div>
+    </div> -->
+
+
+    <!-- app6.js -->
+    <!-- shoppinglist app -->
+    <div ng-controller="AddController as Add">
+      <input type="text" ng-model="Add.itemName" placeholder="Item name">
+      <input type="text" ng-model="Add.itemQuantity" placeholder="Quantity">
+      <button ng-click="Add.addItem();">Add Item</button>
     </div>
+    <div ng-controller="ShowController as Show">
+      <ol>
+        <li ng-repeat="item in Show.items">
+          {{item.quantity}} of {{item.name}}
+          <button ng-click="Show.removeItem($index);">Remove</button>
+        </li>
+      </ol>
+    </div>
+
+
+
+
+
+
+
+
+
+
   </body>
 </html>
